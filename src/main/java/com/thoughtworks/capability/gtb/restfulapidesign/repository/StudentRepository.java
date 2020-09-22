@@ -18,4 +18,8 @@ public class StudentRepository {
     public int count() {
         return studentMap.size();
     }
+
+    public void deleteStudent(int id) {
+        studentMap.remove(id);
+    }
 }

@@ -16,4 +16,8 @@ public class StudentService {
         student.setId(studentRepository.count() + 1);
         return studentRepository.addStudent(student);
     }
+
+    public void deleteStudent(int id) {
+        studentRepository.deleteStudent(id);
+    }
 }
