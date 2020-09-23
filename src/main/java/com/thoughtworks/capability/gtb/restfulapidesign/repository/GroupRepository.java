@@ -45,6 +45,10 @@ public class GroupRepository {
 
     public Group updateGroupName(int id, String groupName) {
         groupList.get(id - 1).setName(groupName);
+        return getGroupById(id);
+    }
+
+    public Group getGroupById(int id) {
         return groupList.get(id - 1);
     }
 }

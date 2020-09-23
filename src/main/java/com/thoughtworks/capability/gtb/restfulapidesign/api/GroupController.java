@@ -24,4 +24,9 @@ public class GroupController {
     public Group updateGroupName(@PathVariable int id, @RequestBody String groupName) {
         return groupService.updateGroupName(id, groupName);
     }
+
+    @GetMapping("/{id}")
+    public Group getGroupById(@PathVariable int id) {
+        return groupService.getGroupById(id);
+    }
 }
