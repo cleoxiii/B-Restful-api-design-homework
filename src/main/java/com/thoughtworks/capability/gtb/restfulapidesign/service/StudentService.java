@@ -34,4 +34,9 @@ public class StudentService {
     public Student getStudentById(int id) {
         return studentRepository.getStudentById(id);
     }
+
+    public Student updateStudentInfos(int id, Student student) {
+        student.setId(id);
+        return studentRepository.updateStudentInfos(id, student);
+    }
 }
