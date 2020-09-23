@@ -3,23 +3,32 @@ package com.thoughtworks.capability.gtb.restfulapidesign.repository;
 import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentRepository {
-    Map<Integer, Student> studentMap = new HashMap<>();
+    List<Student> studentList = new ArrayList<>();
 
     public Student addStudent(Student student) {
-        studentMap.put(student.getId(), student);
+        studentList.add(student);
         return student;
     }
 
     public int count() {
-        return studentMap.size();
+        return studentList.size();
     }
 
     public void deleteStudent(int id) {
-        studentMap.remove(id);
+        studentList.remove(id - 1);
+    }
+
+    public List<Student> getAllStudents() {
+        return studentList;
+    }
+
+    public List<Student> getStudentsByGender(String gender) {
+        return studentList.stream().filter(student -> student.getGender().equals(gender)).collect(Collectors.toList());
     }
 }
