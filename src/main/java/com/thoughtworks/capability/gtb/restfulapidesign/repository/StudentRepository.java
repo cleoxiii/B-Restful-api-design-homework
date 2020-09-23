@@ -31,4 +31,8 @@ public class StudentRepository {
     public List<Student> getStudentsByGender(String gender) {
         return studentList.stream().filter(student -> student.getGender().equals(gender)).collect(Collectors.toList());
     }
+
+    public Student getStudentById(int id) {
+        return studentList.get(id - 1);
+    }
 }
